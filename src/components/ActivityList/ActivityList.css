@@ -1,0 +1,31 @@
+.activity-list-container {
+    background-color: #d5dade;
+    width: 350px;
+    height: 500px;
+    margin: 3rem auto;
+    padding: 2rem 2rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    border-radius: 20px;
+    
+}
+
+.burb-header{
+    width: 300px ;
+    height: 5px;
+    padding: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color:#b26ce9 ;
+    border-radius: 10px;
+    color: #fff;
+}
+
+.activity-cards-container{
+    background-color: #d5dade;
+    padding: 1rem;
+    overflow-y:scroll;
+    overflow-x: hidden;
+}

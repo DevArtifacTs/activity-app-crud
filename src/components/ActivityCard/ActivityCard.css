@@ -1,0 +1,50 @@
+
+.activity-card{
+    margin: 20px auto;
+    padding: 15px;
+    width: 300px;
+    display: flex;
+    flex-direction: column;
+    background-color: #e6e6e6;
+    border-radius: 15px;
+    box-shadow: .4rem .4rem 1rem #ccc, -.4rem -.4rem 1rem #fff;
+}
+.action-btn{
+    text-align: end;
+    margin-bottom: 0.6rem;
+}
+.card-content{
+    display: flex;
+    justify-content: space-between;
+}
+.card-name{
+    line-height: normal;
+    text-transform: uppercase;
+    font-size: 20px;
+}
+.card-info-item{
+    line-height: normal;
+    font-size: 14px;
+}
+.card-icon{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    
+}
+.action-btn{
+    width: 50px;
+    display: flex;
+    justify-content: space-between;
+}
+.global-class-name{
+    border-radius: 15px;
+    box-shadow: .4rem .4rem 1rem #ccc, -.4rem -.4rem 1rem #fff;
+}
+
+/* animation */
+.global-class-name:hover{
+    cursor: pointer;
+    transform: scale(1.1);
+}
+
