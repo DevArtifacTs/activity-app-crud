@@ -11,7 +11,7 @@
 
   ::-webkit-scrollbar-button {
     width: 0px; /*for horizontal scrollbar*/
-    height: 10px; /*for vertical scrollbar*/
+    height: 0px; /*for vertical scrollbar*/
   }
    
   /* Handle */

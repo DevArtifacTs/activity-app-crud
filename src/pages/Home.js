@@ -9,10 +9,10 @@ import Navbar from '../components/Navbar/Navbar';
 function Home(props){
 
     return (
-        <>
+        <section className='home'>
             <Navbar/>
             <ActivityList/>
-        </>
+        </section>
     )
 }
 

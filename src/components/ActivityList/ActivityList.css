@@ -1,14 +1,13 @@
 .activity-list-container {
     background-color: #d5dade;
     width: 350px;
-    height: 500px;
-    margin: 3rem auto;
+    height: 550px;
+    margin: 3rem 0;
     padding: 2rem 2rem;
     display: flex;
     flex-direction: column;
     align-items: center;
     border-radius: 20px;
-    
 }
 
 .burb-header{
