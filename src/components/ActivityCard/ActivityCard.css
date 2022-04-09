@@ -39,12 +39,13 @@
 }
 .global-class-name{
     border-radius: 15px;
-    box-shadow: .4rem .4rem 1rem #ccc, -.4rem -.4rem 1rem #fff;
+    box-shadow: var(--box-shadow);
 }
 
 /* animation */
 .global-class-name:hover{
     cursor: pointer;
-    transform: scale(1.1);
+    /* transform: scale(1.1); */
+    box-shadow: var(--box-shadow-inset);
 }
 

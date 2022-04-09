@@ -50,11 +50,16 @@ table {
 }
 
 /* style */
+*{
+  box-sizing: border-box;
+}
 html {
   height: 100%;
   background-color: #f2f2f2;;
+  box-sizing: border-box;
 }
 body {
+  box-sizing: border-box;
   margin: 0;
   min-height: 100%;
   width: 100%;
@@ -72,9 +77,13 @@ code {
 }
 
 #root {
+  box-sizing: border-box;
   background-color: #f2f2f2;
-  height: 100%;
-  width: 100%;
+  min-height: 100%;
+  min-width: 100%;
+  --box-shadow: .4rem .4rem 1rem #ccc, -.4rem -.4rem 1rem #fff;
+  --box-shadow-inset: .4rem .4rem 1rem #ccc inset, -.4rem -.4rem 1rem #fff inset;
+
 }
 
 

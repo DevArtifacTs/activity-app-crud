@@ -1,0 +1,18 @@
+.activity-choices {
+    max-width: 300px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    grid-area: choices;
+    background-color:rgba(239, 239, 239,0.6) ;
+    border-radius: 20px;
+}
+.choice-card{
+    padding: 1rem;
+    box-shadow: var(--box-shadow);
+    text-align: center;
+    margin: 20px;
+    border-radius: 20px;
+    background-color: #e6e6e6;
+}

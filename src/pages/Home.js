@@ -5,6 +5,7 @@ import './Home.css'
 import ActivityList from '../components/ActivityList/ActivityList';
 import ActivityCard from '../components/ActivityCard/ActivityCard';
 import Navbar from '../components/Navbar/Navbar';
+import Form from '../components/Form/Form';
 
 function Home(props){
 
@@ -12,6 +13,7 @@ function Home(props){
         <section className='home'>
             <Navbar/>
             <ActivityList/>
+            <Form/>
         </section>
     )
 }
