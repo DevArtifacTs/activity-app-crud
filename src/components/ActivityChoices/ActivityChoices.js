@@ -10,7 +10,7 @@ function ActivityChoices(props){
             {
                 PreparedActivities.map((choice, index)=> {
                     return (
-                        <div className="choice-card">
+                        <div className="choice-card" key={index} >
                             {choice.component}
                             <p>{choice.name}</p>
                         </div>

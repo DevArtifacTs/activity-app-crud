@@ -1,18 +1,44 @@
-import React from "react";
+import React, {useState, useEffect} from "react";
 import './ActivityList.css'
 
 // mockup data
-import preparedActivity from "../MockUpData/PreparedActivities";
+// import preparedActivity from "../MockUpData/PreparedActivities";
 import activityListData from "../MockUpData/ActivityMockUpdata";
 
 // components
 import ActivityCard from "../ActivityCard/ActivityCard";
-import Button from "../Button/Button";
 import './ScrollBar.css';
+
+// external logical components
+import { useUserRecords } from '../../hooks'
+import { getRecords } from '../../api/index';
+
 
 function ActivityList(props){
 
-    const mockUps = activityListData ;
+    // get records in MongoDB
+    // const [records, setRecords] = useUserRecords();
+
+    const [records, setRecords] = useState([]);
+
+    useEffect(()=> {
+        (async()=>{
+            const response = await getRecords();
+            console.log('records data', response.data);
+            console.log('records response', response.status);
+
+            if(response.status === 200 ){
+                setRecords(response);
+            } else {
+                alert('cannot connect to server.');
+            };
+        })();
+        console.log(records);
+    }, []);
+
+    
+    // const mockUps = activityListData ;
+    // console.log(records) ;
 
     return (
         <section className="activity-list-container">
@@ -21,18 +47,18 @@ function ActivityList(props){
             </div>
             <div className="activity-cards-container">
                 {/* card go here */}
-                {
-                    mockUps.map((card, index) => {
+                { records.data &&
+                    records.data.map((card, index) => {
                         return (
                                 <ActivityCard 
                                     key={index} 
                                     name ={card.name}
                                     description = {card.description}
                                     duration = {card.duration}
-                                    date = {card.date}
-                                    location = {props.location}
+                                    timestamp = {card.timestamp}
+                                    location = {card.location}
                                     calories = {card.calories}
-                                    component={card.component}  
+                                    logo={card.logo}  
                                 />
                             )
                     })
