@@ -25,6 +25,10 @@ const icons = {
 
 function ActivityCard(props){
 
+    function handleDelete(_id){
+        props.handleDeleteRecord(_id);
+    }
+
     return (
         <>
         <div  className="activity-card">
@@ -36,7 +40,7 @@ function ActivityCard(props){
                             <AiFillEdit/>
                         </IconContext.Provider>
                         <IconContext.Provider value={{color: "red",className: "global-class-name" }}>
-                            <AiFillCloseSquare/>
+                            <AiFillCloseSquare onClick={() => handleDelete(props._id)} />
                         </IconContext.Provider> 
                     </div>
                     <IconContext.Provider value={{ color: "#992ffc", className: "global-class-name", size : "80px" }} >

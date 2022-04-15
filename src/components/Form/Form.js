@@ -15,7 +15,7 @@ function Form(props){
     const [description, setDescription] = useState('');
     const [location, SetLocation] = useState('');
     const [date, setDate] = useState('');
-    const [duration, setDuration] = useState();
+    const [duration, setDuration] = useState(0);
     const [calories, setCalories] = useState(0);
 
     // for input validation boolean
@@ -30,7 +30,6 @@ function Form(props){
         setName(activityName);
     }
 
-
     useEffect(()=> {
         handleName(props.logoName);
         setIsSelect(false);
@@ -39,7 +38,6 @@ function Form(props){
             console.log('(in useEffect)name is', name);
         }
     }, [props.logoName, isSelect])
-
 
     const  isDescriptionOk = description.length >= 10
     function handleDescription(e){
@@ -84,6 +82,22 @@ function Form(props){
         console.log('calories: ', calories);
     }
 
+    function handleClearForm(){
+        setName('');
+        setDescription('');
+        SetLocation('');
+        setDate('');
+        setDuration(0);
+        setCalories(0);
+        setIsNameOk(false);
+        setIsSelect(false);
+
+        // clear input date form
+        const now = new Date();
+        const dateInput = document.getElementById('activity-date');
+        dateInput.value = now ;
+    }
+
     const isInputFormOk =   
         Boolean(isNameOk) && 
         Boolean(isDescriptionOk) && 
@@ -94,13 +108,6 @@ function Form(props){
 
     function handleSubmit(e){
         e.preventDefault()
-        console.log('name', e.target.name.value)
-        console.log('description', e.target.description.value)
-        console.log('date', e.target.date.value)
-        console.log('location', e.target.location.value)
-        console.log('duration', e.target.duration.value)
-        console.log('calories', e.target.calories.value)
-        console.log('isInputFormOk', isInputFormOk);
         // create data body
         const body = {
             name : e.target.name.value,
@@ -111,25 +118,25 @@ function Form(props){
             calories : e.target.calories.value,
             logo : props.logoName
         }
-        console.log('body: ', body);
 
         // axios goes here
         if(isInputFormOk){
+            console.log('body: ', body);
             // http post
-            
+            // fetch({ url : 'localhost:4001'})
             ( async()=>{
                 const response = await postRecords(body);
-                
                 console.log('submitted data', response.data);
                 console.log('submitted response', response.status);
+
+                // clear input form
+                handleClearForm();
+                //update tricker value
+                props.handleAddActivity();
             } )()
-
-
-            // fetch({ url : 'localhost:4001'})
-            // return
         } else {
-            // alert('valid value')
-        }
+            alert('invalid input form value');
+        };
     }
 
     return(
@@ -144,7 +151,7 @@ function Form(props){
                     <label htmlFor="activity-name" style={{color : isNameOk? 'black' : 'red' }}>Name</label>
                     <input 
                         placeholder='Please select activity' 
-                        value={props.logoName} 
+                        value={name} 
                         name='name'
                         className="activity-info-input" 
                         id="activity-name" type="text" 
@@ -160,7 +167,7 @@ function Form(props){
                         name='description'
                         id="activity-description" 
                         type="text" 
-                        placeholder="descript about your activity" 
+                        placeholder="describe about your activity" 
                         onChange={ handleDescription }
                     />
                 </fieldset>
@@ -172,7 +179,8 @@ function Form(props){
                         name='duration'
                         className="activity-info-input" 
                         id="activity-duration" 
-                        type='number' placeholder="how long it last?" 
+                        type='number' 
+                        placeholder="how long it last?" 
                         onChange={handleDuration}
                     />
                 </fieldset>
@@ -183,7 +191,8 @@ function Form(props){
                         name='calories'
                         className="activity-info-input" 
                         id="activity-calories" 
-                        type='number' placeholder="How energy is consumed?" 
+                        type='number' 
+                        placeholder="How energy is consumed?" 
                         onChange={handleCalories}
                     />
                 </fieldset>

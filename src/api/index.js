@@ -15,3 +15,9 @@ export const postRecords = async (jsonBody) => {
     const response = await client.post('/users/me/records', jsonBody)
     return response ;
 }
+
+export const deleteRecords = async (_id) => {
+    const response = await client.delete(`/users/me/records/${_id}`)
+    return response ;
+}
+

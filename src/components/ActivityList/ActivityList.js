@@ -12,28 +12,35 @@ import './ScrollBar.css';
 // external logical components
 import { useUserRecords } from '../../hooks'
 import { getRecords } from '../../api/index';
+import { deleteRecords } from "../../api";
 
 
 function ActivityList(props){
 
-    // get records in MongoDB
-    // const [records, setRecords] = useUserRecords();
 
     const [records, setRecords] = useState([]);
+    const [isDeleteRecord, setIsDeleteRecord] = useState(false);
+
+    const handleDeleteRecord = async (_id) => {
+        const response = deleteRecords(_id);
+        console.log(response.data);
+        console.log(response.status);
+        setIsDeleteRecord(true);
+    }
 
     useEffect(()=> {
         (async()=>{
             const response = await getRecords();
-            // console.log('records data', response.data);
-            // console.log('records response', response.status);
-
             if(response.status === 200 ){
                 setRecords(response);
+                setIsDeleteRecord(false)
             } else {
                 alert('cannot connect to server.');
             };
         })();
-    }, []);
+    }, [props.isAddNewActivity, isDeleteRecord]);
+
+    
 
     return (
         <section className="activity-list-container">
@@ -54,6 +61,8 @@ function ActivityList(props){
                                     location = {card.location}
                                     calories = {card.calories}
                                     logo={card.logo}  
+                                    _id = {card._id}
+                                    handleDeleteRecord={handleDeleteRecord}
                                 />
                             )
                     })
