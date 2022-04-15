@@ -10,3 +10,8 @@ export const getRecords = async () => {
     const response = await client.get('/users/me/records');
     return response ;
 }
+
+export const postRecords = async (jsonBody) => {
+    const response = await client.post('/users/me/records', jsonBody)
+    return response ;
+}

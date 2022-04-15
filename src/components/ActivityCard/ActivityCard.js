@@ -8,19 +8,22 @@ import { BiRun } from "react-icons/bi";
 import { BiCycling } from "react-icons/bi";
 import { BiSwim } from "react-icons/bi";
 import { GiHiking } from "react-icons/gi";
+import { BiWalk} from "react-icons/bi";
+import { RiFootballLine } from "react-icons/ri";
 
 // for icon configuration
 import { IconContext } from "react-icons";
 
 const icons = {
     run: <BiRun />,
-    bicycleRide: <BiCycling />,
-    swim: <BiSwim />,
+    walk : <BiWalk/>,
+    cycling: <BiCycling />,
+    swimming: <BiSwim />,
     hiking: <GiHiking />,
+    football :  <RiFootballLine />
   };
 
 function ActivityCard(props){
-
 
     return (
         <>
@@ -36,8 +39,8 @@ function ActivityCard(props){
                             <AiFillCloseSquare/>
                         </IconContext.Provider> 
                     </div>
-                    <IconContext.Provider value={{ color: "#992ffc", className: "global-class-name", size : "80px" }}>
-                        {icons[props.logo]}
+                    <IconContext.Provider value={{ color: "#992ffc", className: "global-class-name", size : "80px" }} >
+                        {icons[props.logo]  }
                     </IconContext.Provider>
                 </div>
 
@@ -48,7 +51,6 @@ function ActivityCard(props){
                     <p className="card-info-item">Calories :{props.calories}</p>
                     <p className="card-info-item">Location :{props.location}</p>
                     <p className="card-info-item">date :{props.timestamp}</p>
-                    <p className="card-info-item">calories :{props.calories}</p>
                 </div>
             </div>
         </div>

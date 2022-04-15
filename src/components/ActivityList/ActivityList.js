@@ -24,8 +24,8 @@ function ActivityList(props){
     useEffect(()=> {
         (async()=>{
             const response = await getRecords();
-            console.log('records data', response.data);
-            console.log('records response', response.status);
+            // console.log('records data', response.data);
+            // console.log('records response', response.status);
 
             if(response.status === 200 ){
                 setRecords(response);
@@ -33,12 +33,7 @@ function ActivityList(props){
                 alert('cannot connect to server.');
             };
         })();
-        console.log(records);
     }, []);
-
-    
-    // const mockUps = activityListData ;
-    // console.log(records) ;
 
     return (
         <section className="activity-list-container">

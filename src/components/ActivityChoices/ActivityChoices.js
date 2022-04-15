@@ -5,12 +5,19 @@ import './ActivityChoices.css'
 import PreparedActivities from "../MockUpData/PreparedActivities";
 
 function ActivityChoices(props){
+
+    function handleLogoName(logoName){
+        props.handleLogoName(logoName);
+        // console.log('logoName from ActivityChoices: ', logoName)
+        props.handleSelect();
+    }
+
     return (
         <article className="activity-choices">
             {
                 PreparedActivities.map((choice, index)=> {
                     return (
-                        <div className="choice-card" key={index} >
+                        <div className="choice-card" key={index} onClick ={() => handleLogoName(choice.name) } >
                             {choice.component}
                             <p>{choice.name}</p>
                         </div>

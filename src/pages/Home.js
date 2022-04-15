@@ -8,17 +8,22 @@ import Form from '../components/Form/Form';
 
 function Home(props){
 
-    // const [logo, setLogo] = useState('');
+    const [logoName, setLogoName] = useState('');
 
-    // const handleLogoName = (logoName) => {
-    //     setLogo(logoName);
-    // }
+    const handleLogoName = (logoName) => {
+        setLogoName(logoName);
+    };
+
+    useEffect(()=>{
+        // console.log('logo fron Home page: ', logoName);
+    }, [logoName])
+
 
     return (
         <section className='home'>
             <Navbar/>
-            <Form />
-            <ActivityList/>
+            <Form handleLogoName={handleLogoName} logoName={logoName}/>
+            <ActivityList   />
         </section>
     )
 }
