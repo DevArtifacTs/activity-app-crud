@@ -117,7 +117,7 @@ function ActivityCard(props){
         e.preventDefault()
         // create data body
         const body = {
-            name : e.target.name.value,
+            name : props.name,
             description : e.target.description.value,
             timestamp : e.target.date.value,
             location : e.target.location.value,
