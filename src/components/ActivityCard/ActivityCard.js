@@ -94,11 +94,9 @@ function ActivityCard(props){
         const isDate = moment(dateString, 'DD/MM/YYYY').isValid();
         if(isDate){
             setDate(dateString);
-            console.log(date);
-            return;
+            return console.log(date);
         } else {
-            console.log('invalid date format')
-            return;
+            return console.log('invalid date format');
         }   
     }
 
@@ -186,7 +184,7 @@ function ActivityCard(props){
                     {/* <label htmlFor="card-name">
                         Name<input type="text" placeholder="activity's name" id="card-name"   /> 
                     </label> */}
-                    <label htmlFor="card-activity">
+                    <label htmlFor="card-activity-description">
                         Description
                         <textarea 
                             value={description}
@@ -197,50 +195,53 @@ function ActivityCard(props){
                             onChange={ handleDescription }  
                         /> 
                     </label>
-                    <label htmlFor="">
+                    <label htmlFor="card-activity-duration">
                         Duration
                         <input 
                             value={duration} 
                             name='duration'
                             className="activity-info-input" 
-                            id="activity-duration" 
+                            id="card-activity-duration" 
                             type='number' 
                             placeholder="how long it last?" 
                             onChange={handleDuration}
                         /> 
                     </label>
-                    <label htmlFor="">
+                    <label htmlFor="card-activity-calories">
                         Calories
                         <input 
                             value={calories} 
                             name='calories'
                             className="activity-info-input" 
-                            id="activity-calories" 
+                            id="card-activity-calories" 
                             type='number' 
                             placeholder="How energy is consumed?" 
                             onChange={handleCalories}
                         /> 
                     </label>
-                    <label htmlFor="">
+                    <label htmlFor="card-activity-location">
                         Location
                         <input 
                             value={location} 
                             name='location'
                             className="activity-info-input" 
-                            id="activity-location" 
+                            id="card-activity-location" 
                             type="text" 
                             placeholder="where are you did it?" 
                             onChange={handleLocation}
                         /> 
                     </label>
-                    <label htmlFor="">
+                    <label htmlFor="card-activity-date">
                         Date
-                        <input 
+                        <input
+                            value={date}
                             name='date' 
                             className="activity-info-input" 
-                            id="activity-date" 
+                            id="card-activity-date" 
                             type="date" 
-                            onChange={handleDate}
+                            
+                            // onChange={handleDate}
+                            onChange={event => setDate(event.target.value)}
                         /> 
                     </label>
                     <Button type='submit' text='submit' onClick={handleSubmitEditRecord} />
