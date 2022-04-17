@@ -1,5 +1,6 @@
 .activity-choices {
-    max-width: 300px;
+    max-width: 350px;
+    margin-right: 0.5rem;
     display: flex;
     flex-wrap: wrap;
     justify-content: center;

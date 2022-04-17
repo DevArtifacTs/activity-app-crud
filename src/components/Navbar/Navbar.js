@@ -1,19 +1,28 @@
 import React from "react";
 import './Navbar.css'
 
-// icon
+// iconss
 import {MdKeyboardArrowLeft} from "react-icons/md";
 import {FaBarcode} from "react-icons/fa";
+import { MdRunCircle } from "react-icons/md";
+
+// for icon configuration
+import { IconContext } from "react-icons";
 
 function Navbar(props){
 
+    const style = {color: "purple",  size: '35px' }
+
     return (
         <nav>
-            <MdKeyboardArrowLeft/>
-            <h3>
+            <IconContext.Provider value={style}>
+                <MdRunCircle/>
+            </IconContext.Provider>
+
+            <h1 className="nav-header" >
                 Exeract
-            </h3>
-            <FaBarcode/>
+            </h1>
+            
         </nav>
     )
 }

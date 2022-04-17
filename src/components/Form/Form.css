@@ -3,10 +3,10 @@
 }
 
 .main-form {
-    margin: 2rem 1rem 1rem 5rem;
+    margin: 2rem 1rem 1rem 0rem;
     padding: 1rem;
     height: 100%;
-    width: 700px ;
+    max-width: 700px ;
     display: grid;
     grid-template-columns: repeat(2, 1fr);
     grid-template-rows: 0.2fr 1.5fr;
@@ -36,8 +36,10 @@
 }
 
 .input-form{
+    max-width: 350px;
     padding: 0.5rem;
     padding-bottom: 1rem;
+    margin-left: 0.5rem;
     display: flex;
     flex-direction: column;
     justify-content: center;

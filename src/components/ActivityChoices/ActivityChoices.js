@@ -4,6 +4,8 @@ import './ActivityChoices.css'
 // import mockup data
 import PreparedActivities from "../MockUpData/PreparedActivities";
 
+
+
 function ActivityChoices(props){
 
     function handleLogoName(logoName){
@@ -19,7 +21,7 @@ function ActivityChoices(props){
                     return (
                         <div className="choice-card" key={index} onClick ={() => handleLogoName(choice.name) } >
                             {choice.component}
-                            <p>{choice.name}</p>
+                            <h6>{choice.name}</h6>
                         </div>
                     )
                 })
