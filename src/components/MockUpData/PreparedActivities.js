@@ -34,7 +34,7 @@ const style = {color: "blue",className: "global-class-name",  size: '60px' }
                         </IconContext.Provider>
         },
         {
-            name : 'swimming',
+            name : 'swim',
             component : 
                         <IconContext.Provider value={style}>
                             <BiSwim />
@@ -42,7 +42,7 @@ const style = {color: "blue",className: "global-class-name",  size: '60px' }
             
         },
         {
-            name : 'hiking',
+            name : 'hike',
             component : 
                         <IconContext.Provider value={style}>
                             <GiHiking />

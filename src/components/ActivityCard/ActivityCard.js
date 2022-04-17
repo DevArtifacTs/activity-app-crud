@@ -26,8 +26,8 @@ const icons = {
     run: <BiRun />,
     walk : <BiWalk/>,
     cycling: <BiCycling />,
-    swimming: <BiSwim />,
-    hiking: <GiHiking />,
+    swim: <BiSwim />,
+    hike: <GiHiking />,
     football :  <RiFootballLine />
   };
 
