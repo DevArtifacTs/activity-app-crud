@@ -68,6 +68,7 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  background: linear-gradient(90deg, rgba(102,212,207,1) 0%, rgba(94,92,230,1) 50%, rgba(48,209,88,1) 100%);
   
 }
 
@@ -83,7 +84,7 @@ code {
   min-width: 100%;
   --box-shadow: .4rem .4rem 1rem #ccc, -.4rem -.4rem 1rem #fff;
   --box-shadow-inset: .4rem .4rem 1rem #ccc inset, -.4rem -.4rem 1rem #fff inset;
-
+  background: linear-gradient(90deg, rgba(102,212,207,1) 0%, rgba(94,92,230,1) 50%, rgba(48,209,88,1) 100%);
 }
 
 

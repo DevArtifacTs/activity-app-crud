@@ -3,13 +3,13 @@
 }
 
 .main-form {
-    margin: 5rem 1rem 1rem 5rem;
+    margin: 2rem 1rem 1rem 5rem;
     padding: 1rem;
-    height: 550px;
+    height: 100%;
     width: 650px ;
     display: grid;
     grid-template-columns: repeat(2, 1fr);
-    grid-template-rows: 0.5fr 1fr;
+    grid-template-rows: 0.2fr 1fr;
     grid-template-areas: 
         'headline   headline'
         'choices    input-form';
@@ -59,6 +59,7 @@ fieldset{
     box-shadow: 0 3px 10px rgb(0 0 0 / 0.2);
 }
 textarea{
+    resize: none;
     border-radius: 8px;
     border: 0px solid white;
     height: 50px;
