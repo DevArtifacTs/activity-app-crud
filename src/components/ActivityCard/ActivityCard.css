@@ -14,6 +14,7 @@
     margin-bottom: 0.6rem;
 }
 .card-content{
+    width: 100%;
     display: flex;
     justify-content: space-between;
 }
@@ -37,10 +38,46 @@
     display: flex;
     justify-content: space-between;
 }
+.card-info{
+    position: relative;
+    width: 180px;
+}
 .global-class-name{
     border-radius: 15px;
     box-shadow: var(--box-shadow);
 }
+
+/* hidden description */
+.card-hidden-description{
+    padding-top: 0.5rem;
+    padding-left: 0.5rem;
+    position: absolute;
+    top: 28px;
+    min-width: 185px;
+    height: 80px;
+    border-radius: 10px;
+    box-shadow: 5px 10px 8px #ccc, -.2rem -.2rem 1rem #fff;
+    background-color: #e6e6e6;
+}
+.card-info-span {
+    /* display: block; */
+    font-size: 14px;
+    font-weight: 400;
+    
+}
+
+
+/* edit form */
+.edit-form{
+    margin: 0.5rem 0 0 0;
+}
+.edit-form-input{
+    margin-top: 0.3rem;
+}
+#card-activity-date{
+    display: block;
+}
+
 
 /* animation */
 .global-class-name:hover{

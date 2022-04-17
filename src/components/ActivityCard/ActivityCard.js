@@ -14,6 +14,7 @@ import { BiSwim } from "react-icons/bi";
 import { GiHiking } from "react-icons/gi";
 import { BiWalk} from "react-icons/bi";
 import { RiFootballLine } from "react-icons/ri";
+import { CgDetailsMore } from "react-icons/cg";
 
 // for icon configuration
 import { IconContext } from "react-icons";
@@ -33,6 +34,11 @@ const icons = {
 function ActivityCard(props){
 
     const [isEditForm, setIsEditForm] = useState(false);
+    const [isDetailReveal, setIsDetailReveal] = useState(false);
+
+    function handleDetailReveal(){
+        setIsDetailReveal(!isDetailReveal);
+    }
 
     function handleEditForm(e){
         e.preventDefault();
@@ -165,12 +171,33 @@ function ActivityCard(props){
 
                 {!isEditForm &&
                 <div className="card-info">
-                    <h4 className="card-name">{props.name}</h4>
-                    <p className="card-info-item">Description :{props.description}</p>
-                    <p className="card-info-item">Duration :{props.duration}</p>
-                    <p className="card-info-item">Calories :{props.calories}</p>
-                    <p className="card-info-item">Location :{props.location}</p>
-                    <p className="card-info-item">date :{props.timestamp}</p>
+                    <h3 className="card-name">{props.name}</h3>
+                    <h6 className="card-info-item">
+                        Duration:<span className="card-info-span">{` ${props.duration} minutes`}</span>   
+                    </h6>
+                    <h6 className="card-info-item">
+                        Calories:<span className="card-info-span">{` ${props.calories} kcal.`}</span>   
+                    </h6>
+                    <h6 className="card-info-item">
+                        Location:<span className="card-info-span">{` ${props.location}`}</span>    
+                    </h6>
+                    <h6 className="card-info-item">
+                        date:<span className="card-info-span">{` ${props.timestamp}`}</span>
+                    </h6>
+                    {!isDetailReveal &&
+                    <IconContext.Provider value={{color: "blue",className: "global-class-name" }}>
+                        <CgDetailsMore  
+                            onClick={handleDetailReveal} 
+                        />
+                    </IconContext.Provider> 
+                    }
+                    {isDetailReveal &&
+                    <div className="card-hidden-description" onClick={handleDetailReveal} >
+                        <h6 className="card-info-item" >Description:  
+                            <span className="card-info-span">{` ${props.description}`}</span>  
+                        </h6>
+                    </div>
+                    }
                 </div>
                 }
                 {isEditForm &&
@@ -184,66 +211,75 @@ function ActivityCard(props){
                     {/* <label htmlFor="card-name">
                         Name<input type="text" placeholder="activity's name" id="card-name"   /> 
                     </label> */}
-                    <label htmlFor="card-activity-description">
-                        Description
-                        <textarea 
-                            value={description}
-                            name='description'
-                            id="card-activity"
-                            type="text" 
-                            placeholder="activity description." 
-                            onChange={ handleDescription }  
-                        /> 
-                    </label>
-                    <label htmlFor="card-activity-duration">
-                        Duration
-                        <input 
-                            value={duration} 
-                            name='duration'
-                            className="activity-info-input" 
-                            id="card-activity-duration" 
-                            type='number' 
-                            placeholder="how long it last?" 
-                            onChange={handleDuration}
-                        /> 
-                    </label>
-                    <label htmlFor="card-activity-calories">
-                        Calories
-                        <input 
-                            value={calories} 
-                            name='calories'
-                            className="activity-info-input" 
-                            id="card-activity-calories" 
-                            type='number' 
-                            placeholder="How energy is consumed?" 
-                            onChange={handleCalories}
-                        /> 
-                    </label>
-                    <label htmlFor="card-activity-location">
-                        Location
-                        <input 
-                            value={location} 
-                            name='location'
-                            className="activity-info-input" 
-                            id="card-activity-location" 
-                            type="text" 
-                            placeholder="where are you did it?" 
-                            onChange={handleLocation}
-                        /> 
-                    </label>
-                    <label htmlFor="card-activity-date">
-                        Date
-                        <input
-                            value={date}
-                            name='date' 
-                            className="activity-info-input" 
-                            id="card-activity-date" 
-                            type="date" 
-                            
-                            // onChange={handleDate}
-                            onChange={event => setDate(event.target.value)}
-                        /> 
-                    </label>
+                    <fieldset className="edit-form description-edit-form">
+                        <label htmlFor="card-activity-description"  >
+                            Description
+                            <textarea 
+                                className="edit-form-input"
+                                value={description}
+                                name='description'
+                                id="card-activity-description"
+                                type="text" 
+                                placeholder="activity description." 
+                                onChange={ handleDescription }  
+                            /> 
+                        </label>
+                    </fieldset>
+                    <fieldset className="edit-form duration-edit-form">
+                        <label htmlFor="card-activity-duration" >
+                            Duration
+                            <input 
+                                className="activity-info-input edit-form-input" 
+                                value={duration} 
+                                name='duration'
+                                id="card-activity-duration" 
+                                type='number' 
+                                placeholder="how long it last?" 
+                                onChange={handleDuration}
+                            /> 
+                        </label>
+                    </fieldset>
+                    <fieldset className="edit-form calories-edit-form">
+                        <label htmlFor="card-activity-calories" >
+                            Calories
+                            <input 
+                                id="card-activity-calories edit-form-input" 
+                                value={calories} 
+                                name='calories'
+                                className="activity-info-input" 
+                                type='number' 
+                                placeholder="How energy is consumed?" 
+                                onChange={handleCalories}
+                            /> 
+                        </label>
+                    </fieldset>
+                    <fieldset className="edit-form location-edit-form">
+                        <label htmlFor="card-activity-location" >
+                            Location
+                            <input 
+                                className="activity-info-input edit-form-input" 
+                                value={location} 
+                                name='location'
+                                id="card-activity-location" 
+                                type="text" 
+                                placeholder="where are you did it?" 
+                                onChange={handleLocation}
+                            /> 
+                        </label>
+                    </fieldset>
+                    <fieldset className="edit-form date-edit-form" >
+                        <label htmlFor="card-activity-date" >
+                            Date
+                            <input
+                                className="activity-info-input edit-form-input" 
+                                value={date}
+                                name='date' 
+                                id="card-activity-date" 
+                                type="date" 
+                                onChange={event => setDate(event.target.value)}
+                            /> 
+                        </label>
+                    </fieldset>
                     <Button type='submit' text='submit' onClick={handleSubmitEditRecord} />
                 </form>
                 </>
