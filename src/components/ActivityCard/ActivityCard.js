@@ -142,7 +142,6 @@ function ActivityCard(props){
                 console.log('submitted response', response.status);
 
                 //update tricker value
-
                 props.handleSubmitEditRecord();
             } )()
         } else {
@@ -186,9 +185,7 @@ function ActivityCard(props){
                     </h6>
                     {!isDetailReveal &&
                     <IconContext.Provider value={{color: "blue",className: "global-class-name" }}>
-                        <CgDetailsMore  
-                            onClick={handleDetailReveal} 
-                        />
+                        <CgDetailsMore  onClick={handleDetailReveal} />
                     </IconContext.Provider> 
                     }
                     {isDetailReveal &&
@@ -196,6 +193,9 @@ function ActivityCard(props){
                         <h6 className="card-info-item" >Description:  
                             <span className="card-info-span">{` ${props.description}`}</span>  
                         </h6>
+                        <IconContext.Provider value={{color: "blue",className: "global-class-name" }}>
+                            <CgDetailsMore  onClick={handleDetailReveal} />
+                        </IconContext.Provider> 
                     </div>
                     }
                 </div>

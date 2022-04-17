@@ -40,15 +40,16 @@ function ActivityList(props){
                 alert('cannot connect to server.');
             };
         })();
-    }, [props.isAddNewActivity, isDeleteRecord, isSubmitEdit]);
-
-    
+        
+    }, [props.isAddNewActivity, isDeleteRecord, isSubmitEdit, records]);
 
     return (
         <section className="activity-list-container">
             <div className="burb-header">
                 <h3>Your Activity</h3>
             </div>
+            
+            {records &&
             <div className="activity-cards-container">
                 {/* card go here */}
                 { records.data &&
@@ -72,6 +73,9 @@ function ActivityList(props){
                     })
                 }
             </div>
+            }
+            
+            
         </section>
     )
 }

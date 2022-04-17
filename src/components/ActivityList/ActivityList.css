@@ -9,6 +9,9 @@
     align-items: center;
     border-radius: 20px;
 }
+.prevent-empty {
+    content : '' ;
+}
 
 .burb-header{
     width: 300px ;
@@ -25,6 +28,6 @@
 .activity-cards-container{
     background-color: #d5dade;
     padding: 1rem;
-    overflow-y:scroll;
+    overflow-y:auto;
     overflow-x: hidden;
 }
