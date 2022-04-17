@@ -17,6 +17,9 @@
 .submit {
     background-color: #7ad0ec; 
 }
+.reset {
+    background-color: #dde022; 
+}
 
 #button-component:hover{
     transform: scale(1.1);

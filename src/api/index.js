@@ -16,6 +16,11 @@ export const postRecords = async (jsonBody) => {
     return response ;
 }
 
+export const putRecord = async (_id, jsonBody) => {
+    const response = await client.put(`/users/me/records/${_id}`, jsonBody);
+    return response;
+}
+
 export const deleteRecords = async (_id) => {
     const response = await client.delete(`/users/me/records/${_id}`)
     return response ;

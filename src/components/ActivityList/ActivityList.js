@@ -1,10 +1,6 @@
 import React, {useState, useEffect} from "react";
 import './ActivityList.css'
 
-// mockup data
-// import preparedActivity from "../MockUpData/PreparedActivities";
-import activityListData from "../MockUpData/ActivityMockUpdata";
-
 // components
 import ActivityCard from "../ActivityCard/ActivityCard";
 import './ScrollBar.css';
@@ -20,6 +16,7 @@ function ActivityList(props){
 
     const [records, setRecords] = useState([]);
     const [isDeleteRecord, setIsDeleteRecord] = useState(false);
+    const [isSubmitEdit, setIsSubmitEdit] = useState(false);
 
     const handleDeleteRecord = async (_id) => {
         const response = deleteRecords(_id);
@@ -28,17 +25,22 @@ function ActivityList(props){
         setIsDeleteRecord(true);
     }
 
+    const handleSubmitEditRecord = () => {
+        setIsSubmitEdit(true);
+    }
+
     useEffect(()=> {
         (async()=>{
             const response = await getRecords();
             if(response.status === 200 ){
                 setRecords(response);
                 setIsDeleteRecord(false)
+                setIsSubmitEdit(false);
             } else {
                 alert('cannot connect to server.');
             };
         })();
-    }, [props.isAddNewActivity, isDeleteRecord]);
+    }, [props.isAddNewActivity, isDeleteRecord, isSubmitEdit]);
 
     
 
@@ -63,6 +65,8 @@ function ActivityList(props){
                                     logo={card.logo}  
                                     _id = {card._id}
                                     handleDeleteRecord={handleDeleteRecord}
+                                    handleSubmitEditRecord ={handleSubmitEditRecord}
+                                    
                                 />
                             )
                     })

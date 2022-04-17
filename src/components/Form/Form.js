@@ -141,7 +141,7 @@ function Form(props){
 
     return(
         <>
-        <form onSubmit={handleSubmit} >
+        <form onSubmit={handleSubmit} className='main-form' >
             <legend className="form-headline">Create New Activity</legend>
             {/* activities choices */}
             <ActivityChoices handleLogoName={props.handleLogoName}  handleSelect={handleSelect}/>
