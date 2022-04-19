@@ -2,7 +2,7 @@
     background-color: #d5dade;
     max-width: 400px;
     height: 614px;
-    margin: 2rem 0 0 3rem ;
+    margin: 0rem 0 0 0rem ;
     padding: 2rem 2rem;
     display: flex;
     flex-direction: column;
@@ -30,4 +30,12 @@
     padding: 1rem;
     overflow-y:auto;
     overflow-x: hidden;
+}
+
+/* responsive */
+@media only screen and (max-width: 450px) {
+    .activity-list-container {
+        max-width: 350px;
+        margin-bottom: 1rem;
+    }
 }

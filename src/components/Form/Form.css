@@ -3,7 +3,7 @@
 }
 
 .main-form {
-    margin: 2rem 1rem 1rem 0rem;
+    margin: 0;
     padding: 1rem;
     height: 100%;
     max-width: 700px ;
@@ -72,3 +72,41 @@ textarea{
 #activity-date{
     height: 30px;
 }
+
+/* responsive */
+
+@media only screen and (max-width: 760px) {
+    .main-form {
+        grid-template-columns: repeat(1, 1fr);
+        grid-template-rows: 0.2fr 0.3fr 1.5fr;
+        grid-template-areas:
+            'headline'
+            'choices'
+            'input-form';
+    }
+    .activity-choices{
+        margin: 0.5rem 0 0.5rem 0;
+        min-height: 150px;
+        overflow-y: auto ;
+    }
+}
+
+@media only screen and (max-width: 450px) {
+    .main-form {
+        max-width: 350px;
+    }
+    .activity-choices{
+        margin: 0.5rem 0 0.5rem 0;
+        margin-right: 0 !important ;
+        gap: 0rem;
+    }
+    .input-form {
+        min-width: 280px;
+        padding: 0.5rem;
+        padding-bottom: 1rem;
+        margin: 0;
+        
+    }
+   
+}
+  
