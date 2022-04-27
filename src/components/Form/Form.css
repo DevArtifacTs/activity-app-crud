@@ -61,8 +61,12 @@ fieldset{
     background-color:#e6e6e6 ;
     box-shadow: 0 3px 10px rgb(0 0 0 / 0.2);
 }
+.activity-info-input, #activity-description {
+    background: #fff;
+}
 textarea{
     resize: none;
+    background-color: #fff;
     border-radius: 8px;
     border: 0px solid white;
     height: 50px;
