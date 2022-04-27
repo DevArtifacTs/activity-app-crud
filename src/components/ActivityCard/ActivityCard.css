@@ -77,6 +77,9 @@
 #card-activity-date{
     display: block;
 }
+#card-activity-description {
+    background: #fff;
+}
 
 
 /* animation */
